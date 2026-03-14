@@ -22,16 +22,16 @@ const tree = document.querySelector('#tree');
 
 function createTree(element, data) {
   for (const key in data) {
-    const li = document.createElement('li');
+    const ul = document.createElement('ul');
 
-    li.textContent = key;
-    element.appendChild(li);
+    ul.textContent = key;
+    element.appendChild(ul);
 
     if (Object.keys(data[key]).length) {
-      const ul = document.createElement('ul');
+      const li = document.createElement('li');
 
-      li.appendChild(ul);
-      createTree(ul, data[key]);
+      ul.appendChild(li);
+      createTree(li, data[key]);
     }
   }
 }
